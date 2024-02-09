@@ -7,11 +7,12 @@ import  'dotenv/config';
 
 
 const app = express();
-const PORT = process.env.PORT || 9000;
+const PORT = process.env.PORT;
 
 // Connect to MongoDB
 connectToMongo();
 
+const jwtSecret = process.env.SECRET;
 
 
 // Apply middleware
@@ -34,5 +35,6 @@ app.use("/api/v1", userRoutes);
 
 app.listen(PORT, () => {
   console.log(`API is running on http://localhost:${PORT}`);
+  console.log(jwtSecret); 
 });
 
