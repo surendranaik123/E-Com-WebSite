@@ -37,7 +37,7 @@ class CommonDetailsController {
       const token = jwt.sign({ email: newUser.email }, JWT_SECRET, {
         expiresIn: '1h', // Token expires in 1 hour (adjust as needed)
       });
-
+        console.log(JWT_SECRET);
       res.status(201).json({ status: 'User created successfully', token });
     } catch (error) {
       console.error(error);
